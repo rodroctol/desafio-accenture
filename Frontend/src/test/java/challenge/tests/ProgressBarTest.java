@@ -1,8 +1,9 @@
-package desafio.tests;
+package challenge.tests;
 
-import desafio.base.BaseTest;
-import desafio.pages.ProgressBarPage;
 import org.junit.jupiter.api.Test;
+
+import challenge.base.BaseTest;
+import challenge.pages.ProgressBarPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;

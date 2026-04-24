@@ -1,4 +1,4 @@
-package desafio.pages;
+package challenge.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

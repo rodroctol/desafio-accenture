@@ -1,6 +1,6 @@
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response; // <-- ESTA LINHA RESOLVE O ERRO
+import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
@@ -23,13 +23,12 @@ public class DemoQATest {
 
     @Test
     @Order(1)
-    @DisplayName("1.1 e 1.2 - Criar User e Token")
-    public void testeBase() {
+    @DisplayName("1.1 e 1.2 - Create User and Token")
+    public void testBase() {
         Map<String, String> payload = new HashMap<>();
         payload.put("userName", userName);
         payload.put("password", "Senha@123!");
 
-        // Criar Usuário
         Response responseUser = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
@@ -39,7 +38,6 @@ public class DemoQATest {
         responseUser.then().statusCode(201);
         userID = responseUser.path("userID");
 
-        // Gerar Token
         token = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
@@ -52,30 +50,29 @@ public class DemoQATest {
 
     @Test
     @Order(2)
-    @DisplayName("1.5 - Alugar Livro")
-    public void alugarLivro() {
-        // Log para depuração
-        System.out.println("DEBUG: Alugando para o ID: " + userID);
+    @DisplayName("1.5 - Rent Book")
+    public void rentBook() {
+        System.out.println("DEBUG: Renting for User ID: " + userID);
 
         isbn1 = given().when().get("/BookStore/v1/Books").then().extract().path("books[0].isbn");
 
         String payload = "{\"userId\": \"" + userID + "\", \"collectionOfIsbns\": [{\"isbn\": \"" + isbn1 + "\"}]}";
 
         given()
-                .header("Authorization", "Bearer " + token) // Verifique se o espaço após Bearer existe!
+                .header("Authorization", "Bearer " + token)
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post("/BookStore/v1/Books")
                 .then()
-                .log().ifValidationFails() // Isso vai mostrar o erro detalhado no terminal se falhar
+                .log().ifValidationFails()
                 .statusCode(201);
     }
 
     @Test
     @Order(3)
-    @DisplayName("3.1 - Validar Deleção")
-    public void validarDelecao() {
+    @DisplayName("3.1 - Validate Deletion")
+    public void validateDeletion() {
         Map<String, String> deletePayload = new HashMap<>();
         deletePayload.put("isbn", isbn1);
         deletePayload.put("userId", userID);
@@ -98,7 +95,7 @@ public class DemoQATest {
                     .when()
                     .delete("/Account/v1/User/" + userID)
                     .then()
-                    .statusCode(anyOf(is(204), is(200))); // Aceita 204 ou 200
+                    .statusCode(anyOf(is(204), is(200)));
         }
     }
 }

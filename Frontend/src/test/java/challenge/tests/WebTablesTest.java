@@ -1,8 +1,10 @@
-package desafio.tests;
+package challenge.tests;
 
-import desafio.base.BaseTest;
-import desafio.pages.WebTablesPage;
 import org.junit.jupiter.api.Test;
+
+import challenge.base.BaseTest;
+import challenge.pages.WebTablesPage;
+
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;

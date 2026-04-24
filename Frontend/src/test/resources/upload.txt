@@ -1,2 +1,2 @@
-Teste de upload de arquivo para DemoQA Practice Form.
-Este arquivo é usado pelo script de automação do desafio.
+File upload test for DemoQA - Practice Form
+This file is used by challenge automation script wrote by Rodrigo Toledo

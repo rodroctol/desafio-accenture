@@ -1,8 +1,9 @@
-package desafio.tests;
+package challenge.tests;
 
-import desafio.base.BaseTest;
-import desafio.pages.SortablePage;
 import org.junit.jupiter.api.Test;
+
+import challenge.base.BaseTest;
+import challenge.pages.SortablePage;
 
 import java.util.List;
 

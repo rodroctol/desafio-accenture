@@ -1,11 +1,12 @@
-package desafio.tests;
+package challenge.tests;
 
-import desafio.base.BaseTest;
-import desafio.pages.PracticeFormPage;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import challenge.base.BaseTest;
+import challenge.pages.PracticeFormPage;
 
 import java.nio.file.Paths;
 import java.time.Duration;
@@ -30,7 +31,7 @@ public class PracticeFormTest extends BaseTest {
         String lastName = "User" + new Random().nextInt(1000);
         String email = "demoqa" + System.currentTimeMillis() % 10000 + "@example.com";
         String mobile = "55119" + (10000000 + new Random().nextInt(90000000));
-        String address = "Rua Exemplo 123";
+        String address = "Street Example 123";
         String uploadFilePath = Paths.get("src", "test", "resources", "upload.txt").toAbsolutePath().toString();
 
         formPage.fillFirstName(firstName);

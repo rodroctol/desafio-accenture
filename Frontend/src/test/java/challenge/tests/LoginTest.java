@@ -1,8 +1,9 @@
-package desafio.tests;
+package challenge.tests;
 
-import desafio.base.BaseTest;
-import desafio.pages.LoginPage;
 import org.junit.jupiter.api.Test;
+
+import challenge.base.BaseTest;
+import challenge.pages.LoginPage;
 
 public class LoginTest extends BaseTest {
 

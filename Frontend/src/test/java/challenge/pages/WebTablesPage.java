@@ -1,4 +1,4 @@
-package desafio.pages;
+package challenge.pages;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

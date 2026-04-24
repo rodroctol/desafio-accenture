@@ -1,4 +1,4 @@
-package desafio.pages;
+package challenge.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,9 +14,9 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    public void realizarLogin(String usuario, String senha) {
-        driver.findElement(userNameField).sendKeys(usuario);
-        driver.findElement(passwordField).sendKeys(senha);
+    public void realizarLogin(String user, String password) {
+        driver.findElement(userNameField).sendKeys(user);
+        driver.findElement(passwordField).sendKeys(password);
         driver.findElement(loginButton).click();
     }
 }
