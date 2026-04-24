@@ -1,0 +1,2 @@
+Teste de upload de arquivo para DemoQA Practice Form.
+Este arquivo é usado pelo script de automação do desafio.
